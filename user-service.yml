@@ -31,10 +31,11 @@ spring:
     password: ${MAIL_PASSWORD}
     properties:
       mail:
+        debug: true
         smtp:
           auth: true
-        starttls:
-          enable: true
+          starttls:
+            enable: true
 logging:
   level:
     root: INFO
