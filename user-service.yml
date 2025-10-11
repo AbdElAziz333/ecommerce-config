@@ -18,6 +18,8 @@ spring:
       port: ${MONGO_PORT}
       username: ${MONGO_USER}
       password: ${MONGO_PASSWORD}
+      database: ${MONGO_DB}
+      authentication-database: admin
     redis:
       host: ${LHOST}
       port: ${REDIS_PORT}
