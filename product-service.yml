@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      host: ${LHOST}
+      port: ${MONGO_PORT}
+      username: ${MONGO_USER}
+      password: ${MONGO_PASSWORD}
+      database: ${MONGO_DB}
+      authentication-database: admin
+    elasticsearch:
+      username: ${ELASTICSEARCH_USERNAME}
+      password: ${ELASTICSEARCH_PASSWORD}
+      uris: []
