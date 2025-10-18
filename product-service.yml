@@ -10,4 +10,5 @@ spring:
     elasticsearch:
       username: ${ELASTICSEARCH_USERNAME}
       password: ${ELASTICSEARCH_PASSWORD}
-      uris: []
+      uris:
+        - http://${LHOST}:${ELASTICSEARCH_HTTP_PORT}
