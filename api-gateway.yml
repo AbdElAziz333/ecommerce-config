@@ -5,12 +5,12 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: users
-          uri: http://localhost:8080
+        - id: user-service
+          uri: lb://user-service
           predicates:
             - Path=/api/v1/students/**
-        - id: products
-          uri: http://localhost:8081
+        - id: product-service
+          uri: lb://product-service
           predicates:
             - Path=/api/v1/products/**
 
