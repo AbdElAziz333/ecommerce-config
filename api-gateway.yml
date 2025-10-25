@@ -12,7 +12,7 @@ spring:
               uri: lb://user-service
               predicates:
                 - Path=/api/v1/users/**
-                - Path=/api/v1/pending_users/**
+                - Path=/api/v1/internal/registration/**
                 - Path=/api/v1/addresses/**
       discovery:
         locator:
