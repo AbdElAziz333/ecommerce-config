@@ -1,26 +1,23 @@
 spring:
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
       server:
         webmvc:
           routes:
-            - id: product-service
-              uri: lb://product-service
-              predicates:
-                - Path=/api/v1/products/**
             - id: user-service
               uri: lb://user-service
               predicates:
                 - Path=/api/v1/users/**
                 - Path=/api/v1/internal/registration/**
                 - Path=/api/v1/addresses/**
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-#  loadbalancer:
-#    ribbon:
-#      enabled: false  # Disable Ribbon, use Spring Cloud LoadBalancer
+            - id: product-service
+              uri: lb://product-service
+              predicates:
+                - Path=/api/v1/products/**
 
 eureka:
   client:

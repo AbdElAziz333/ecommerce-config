@@ -58,8 +58,5 @@ jwt:
   maxAge: 36000000
   secure: false
 
-web:
-  frontendUrl: ${FRONTEND_URL}
-
 server:
   port: 8080
