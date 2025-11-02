@@ -12,11 +12,10 @@ spring:
               uri: lb://user-service
               predicates:
                 - Path=/api/v1/users/**
-                - NotPath=/api/v1/users/current
             - id: user-service-internal
               uri: lb://user-service
               predicates:
-                - Path=/api/v1/internal/users/**
+                - Path=/api/v1/internal/user/**
             - id: product-service
               uri: lb://product-service
               predicates:
