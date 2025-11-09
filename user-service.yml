@@ -45,11 +45,5 @@ logging:
   pattern:
     console: "%d{HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
 
-jwt:
-  secret: ${JWT_SECRET}
-  cookieName: jwt
-  maxAge: 36000000
-  secure: false
-
 server:
   port: 8080
