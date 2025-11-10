@@ -19,7 +19,7 @@ spring:
             - id: user-current
               uri: lb://auth-service
               predicates:
-                - Path=/api/v1/users/current
+                - Path=/api/v1/user/current
             - id: user-service
               uri: lb://user-service
               predicates:
