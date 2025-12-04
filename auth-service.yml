@@ -15,7 +15,7 @@ eureka:
 logging:
   level:
     root: INFO
-    com.aziz.user_service: DEBUG
+    com.aziz.auth_service: DEBUG
   pattern:
     console: "%d{HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
 
