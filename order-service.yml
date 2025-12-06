@@ -43,4 +43,5 @@ server:
   port: 8082
 
 kafka:
-  notification-topic: notification-topic
+  topics:
+    order-created: order-created-topic
