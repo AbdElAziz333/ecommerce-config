@@ -4,6 +4,7 @@ spring:
     contact-points: ${LHOST}
     port: 9042
     local-datacenter: dc1
+    schema-action: create_if_not_exists
   kafka:
     bootstrap-servers: ${LHOST}:${KAFKA_BROKER_PORT}
     producer:
