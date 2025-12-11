@@ -19,7 +19,7 @@ spring:
         spring.json.trusted.packages: "*"
         spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
         spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
-        spring.json.type.mapping: "com.aziz.user_service.events.UserEvent:com.aziz.notification_service.events.UserEvent,com.aziz.order_service.events.OrderEvent:com.aziz.notification_service.events.OrderEvent"
+        spring.json.type.mapping: "com.aziz.user_service.kafka.events.UserEvent:com.aziz.notification_service.kafka.events.UserEvent,com.aziz.order_service.kafka.events.OrderEvent:com.aziz.notification_service.kafka.events.OrderEvent"
 
   mail:
     host: smtp.gmail.com
