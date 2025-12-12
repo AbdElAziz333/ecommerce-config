@@ -22,10 +22,10 @@ management:
         include: health, info, metrics, prometheus
   endpoint:
     prometheus:
-      enabled: true
-  metrics:
-    export:
-      prometheus:
+      access: true
+  prometheus:
+    metrics:
+      export:
         enabled: true
 
 logging:
