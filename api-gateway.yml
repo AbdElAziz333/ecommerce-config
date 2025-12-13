@@ -45,13 +45,6 @@ spring:
               predicates:
                 - Path=/api/v1/order-items/**
 
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      default-zone: http://${LHOST}:8761/eureka/
-
 management:
   tracing:
     sampling:
@@ -91,6 +84,3 @@ session:
 user:
   idHeader: User-Id
   roleHeader: User-Role
-
-web:
-  frontendUrl: http://${LHOST}:5173

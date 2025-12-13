@@ -1,26 +1,4 @@
 spring:
-  cassandra:
-    keyspace-name: ${CASSANDRA_KP}
-    contact-points: ${LHOST}
-    port: 9042
-    local-datacenter: dc1
-    schema-action: create_if_not_exists
-  kafka:
-    bootstrap-servers: ${LHOST}:${KAFKA_BROKER_PORT}
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-    consumer:
-      group-id: notification-indexer-group
-      auto-offset-reset: earliest
-      key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
-      properties:
-        spring.json.trusted.packages: "*"
-        spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
-        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
-        spring.json.type.mapping: "com.aziz.user_service.kafka.events.UserEvent:com.aziz.notification_service.kafka.events.UserEvent,com.aziz.order_service.kafka.events.OrderEvent:com.aziz.notification_service.kafka.events.OrderEvent"
-
   mail:
     host: smtp.gmail.com
     port: 587
@@ -34,13 +12,6 @@ spring:
           auth: true
           starttls:
             enable: true
-
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      default-zone: http://${LHOST}:8761/eureka/
 
 management:
   tracing:
@@ -66,7 +37,7 @@ logging:
     console: "%d{HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
 
 server:
-  port: 8085
+  port: ${NOTIFICATION_SERVER_PORT}
 
 kafka:
   user-events: user-events

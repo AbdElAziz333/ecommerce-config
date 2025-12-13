@@ -1,0 +1,29 @@
+spring:
+  cassandra:
+    keyspace-name: ${CASSANDRA_KP}
+    contact-points: ${LHOST}
+    port: ${CASSANDRA_PORT}
+    local-datacenter: dc1
+    schema-action: create_if_not_exists
+  kafka:
+    bootstrap-servers: ${LHOST}:${KAFKA_BROKER_PORT}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: notification-group
+      auto-offset-reset: earliest
+      key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+        spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
+        spring.json.type.mapping: "com.aziz.user_service.kafka.events.UserEvent:com.aziz.notification_service.kafka.events.UserEvent,com.aziz.order_service.kafka.events.OrderEvent:com.aziz.notification_service.kafka.events.OrderEvent"
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default-zone: http://${LHOST}:${DISCOVERY_SERVER_PORT}/eureka/

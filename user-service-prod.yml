@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_SVC}:${POSTGRES_PORT}/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+  data:
+    redis:
+      host: ${REDIS_SVC}
+      port: ${REDIS_PORT}
+      timeout: 2000ms
+  kafka:
+    bootstrap-servers: ${KAFKA_SVC}:${KAFKA_BROKER_PORT}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: notification-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default-zone: http://${DISCOVERY_SERVER_SVC}:${DISCOVERY_SERVER_PORT}/eureka/
