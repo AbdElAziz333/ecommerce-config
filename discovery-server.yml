@@ -8,7 +8,7 @@ management:
         include: health, info, metrics, prometheus
   endpoint:
     prometheus:
-      access: true
+      access: READ_ONLY
   prometheus:
     metrics:
       export:
