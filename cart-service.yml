@@ -33,4 +33,4 @@ logging:
     console: "%d{HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
 
 server:
-  port: 8084
+  port: ${CART_SERVICE_PORT}

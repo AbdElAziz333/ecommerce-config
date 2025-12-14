@@ -5,7 +5,7 @@ spring:
     password: ${POSTGRES_PASSWORD}
   data:
     redis:
-      host: ${CART_REDIS_SVC}
+      host: ${REDIS_SVC}
       port: ${REDIS_PORT}
       timeout: 2000ms
 
