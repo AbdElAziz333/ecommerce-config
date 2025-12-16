@@ -25,4 +25,5 @@ server:
   port: ${PRODUCT_SERVICE_PORT}
 
 kafka:
-  topic: product-topic
+  topic:
+    product-created: product.created

@@ -40,6 +40,10 @@ server:
   port: ${NOTIFICATION_SERVICE_PORT}
 
 kafka:
-  user-events: user-events
-  order-events: order-events
-  payment-events: payment-events
+  topic:
+    user-registered: user.registered
+    otp-verification: otp.verification
+    order-created: order.created
+    order-payment: order.payment
+    payment-completed: payment.completed
+    payment-failed: payment.failed

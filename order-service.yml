@@ -36,4 +36,6 @@ server:
   port: ${ORDER_SERVICE_PORT}
 
 kafka:
-  order-events: order-events
+  topic:
+    order-created: order.created
+    order-payment: order.payment

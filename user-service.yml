@@ -36,4 +36,6 @@ server:
   port: ${USER_SERVICE_PORT}
 
 kafka:
-  user-events: user-events
+  topic:
+    otp-verification: otp.verification
+    user-registered: user.registered
