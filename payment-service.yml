@@ -40,3 +40,12 @@ kafka:
     payment-completed: payment.completed
     payment-failed: payment.failed
     order-payment: order.payment
+
+paymob:
+  apiKey: ${PAYMOB_API_KEY}
+  secretKey: ${PAYMOB_SECRET_KEY}
+  # publicKey: ${PAYMOB_PUBLIC_KEY}
+  # integrationId: ${PAYMOB_INTEGRATION_ID}
+  # iFrameId: ${PAYMOB_IFRAME_ID}
+  # hmacSecret: ${PAYMOB_HMAC_SECRET}
+  # baseUrl: ${PAYMOB_BASE_URL}
