@@ -1,12 +1,7 @@
 spring:
   data:
     mongodb:
-      host: ${MONGO_SVC}
-      port: ${MONGO_PORT}
-      username: ${MONGO_USER}
-      password: ${MONGO_PASSWORD}
-      database: ${MONGO_DB}
-      authentication-database: admin
+      uri: mongodb+srv://aziz:${MONGO_PASSWORD}@cluster0.osx5bo9.mongodb.net/?appName=Cluster0
   kafka:
     bootstrap-servers: ${KAFKA_SVC}:${KAFKA_BROKER_PORT}
     producer:
