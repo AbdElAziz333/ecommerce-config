@@ -1,10 +1,14 @@
 spring:
   cassandra:
     keyspace-name: ${CASSANDRA_KEYSPACE}
-    contact-points: ${CASSANDRA_SVC}
-    port: ${CASSANDRA_PORT}
-    local-datacenter: dc1
+    username: token
+    password: ${ASTRA_TOKEN}
     schema-action: create_if_not_exists
+    request:
+      timeout: 10s
+    connection:
+      connect-timeout: 10s
+      init-query-timeout: 10s
   kafka:
     bootstrap-servers: ${KAFKA_SVC}:${KAFKA_BROKER_PORT}
     producer:
@@ -20,6 +24,9 @@ spring:
         spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
         spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
         spring.json.type.mapping: "com.aziz.user_service.kafka.events.UserRegisteredEvent:com.aziz.notification_service.kafka.events.UserRegisteredEvent,com.aziz.user_service.kafka.events.OtpVerificationEvent:com.aziz.notification_service.kafka.events.OtpVerificationEvent,com.aziz.order_service.kafka.events.OrderCreationEvent:com.aziz.notification_service.kafka.events.OrderCreationEvent,com.aziz.payment_service.kafka.events.PaymentSuccessEvent:com.aziz.notification_service.kafka.events.PaymentSuccessEvent,com.aziz.payment_service.kafka.events.PaymentFailedEvent:com.aziz.notification_service.kafka.events.PaymentFailedEvent"
+
+datastax.astra:
+  secure-connect-bundle: classpath:secure-connect.zip
 
 eureka:
   client:
