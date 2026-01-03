@@ -22,16 +22,16 @@ logging:
     console: "%d{HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
 
 server:
-  port: ${PORT}
+  port: 8083
 
 jwt:
   accessToken:
-    secret: ${ACCESS_TOKEN_SECRET}
+    secret: katykatykatykatykatykatykatykaty
     cookieName: access_token
     maxAge: 900000 # 15 minutes
     secured: false
   refreshToken:
-    secret: ${REFRESH_TOKEN_SECRET}
+    secret: azizazizazizazizazizazizazizaziz
     cookieName: refresh_token
     maxAge: 1209600000 # 15 days
     secured: false
