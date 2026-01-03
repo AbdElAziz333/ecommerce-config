@@ -1,10 +1,10 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${LHOST}:${POSTGRES_PORT}/${POSTGRES_DB}
-    username: ${POSTGRES_USER}
-    password: ${POSTGRES_PASSWORD}
+    url: jdbc:postgresql://localhost:5435/payment
+    username: aziz
+    password: aziz333
   kafka:
-    bootstrap-servers: ${LHOST}:${KAFKA_BROKER_PORT}
+    bootstrap-servers: localhost:9092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
@@ -22,4 +22,4 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     serviceUrl:
-      defaultZone: http://${LHOST}:${DISCOVERY_SERVER_PORT}/eureka/
+      defaultZone: http://localhost:8081/eureka/

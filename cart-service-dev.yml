@@ -1,12 +1,12 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${LHOST}:${POSTGRES_PORT}/${POSTGRES_DB}
-    username: ${POSTGRES_USER}
-    password: ${POSTGRES_PASSWORD}
+    url: jdbc:postgresql://localhost:5433/cart
+    username: aziz
+    password: aziz333
   data:
     redis:
-      host: ${LHOST}
-      port: ${REDIS_PORT}
+      host: localhost
+      port: 6381
       timeout: 2000ms
 
 eureka:
@@ -14,4 +14,4 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     serviceUrl:
-      defaultZone: http://${LHOST}:${DISCOVERY_SERVER_PORT}/eureka/
+      defaultZone: http://localhost:8081/eureka/

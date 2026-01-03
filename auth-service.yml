@@ -22,7 +22,7 @@ logging:
     console: "%d{HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
 
 server:
-  port: ${AUTH_SERVICE_PORT}
+  port: ${PORT}
 
 jwt:
   accessToken:

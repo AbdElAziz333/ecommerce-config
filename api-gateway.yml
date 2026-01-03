@@ -69,7 +69,7 @@ logging:
     console: "%d{HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
 
 server:
-  port: 8202
+  port: ${PORT}
 
 jwt:
   accessTokenSecret: ${ACCESS_TOKEN_SECRET}

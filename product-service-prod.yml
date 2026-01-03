@@ -1,19 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://aziz:${MONGO_PASSWORD}@cluster0.osx5bo9.mongodb.net/?appName=Cluster0
-  kafka:
-    bootstrap-servers: ${KAFKA_SVC}:${KAFKA_BROKER_PORT}
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-    consumer:
-      group-id: product-service-group
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      properties:
-        spring.json.trusted.packages: "*"
+      uri: ${MONGO_URL}
 
 eureka:
   client:

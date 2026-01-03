@@ -22,8 +22,4 @@ logging:
     console: "%d{HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
 
 server:
-  port: ${PRODUCT_SERVICE_PORT}
-
-kafka:
-  topic:
-    product-created: product.created
+  port: ${PORT}

@@ -37,7 +37,7 @@ logging:
     console: "%d{HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
 
 server:
-  port: ${NOTIFICATION_SERVICE_PORT}
+  port: ${PORT}
 
 kafka:
   topic:
@@ -46,4 +46,3 @@ kafka:
     order-created: order.created
     order-payment: order.payment
     payment-completed: payment.completed
-    payment-failed: payment.failed

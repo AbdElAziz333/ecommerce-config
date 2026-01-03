@@ -33,17 +33,16 @@ logging:
     console: "%d{HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
 
 server:
-  port: ${PAYMENT_SERVICE_PORT}
+  port: ${PORT}
 
 kafka:
   topic:
     payment-completed: payment.completed
-    payment-failed: payment.failed
     order-payment: order.payment
 
-paymob:
-  apiKey: ${PAYMOB_API_KEY}
-  secretKey: ${PAYMOB_SECRET_KEY}
+# paymob:
+#   apiKey: ${PAYMOB_API_KEY}
+#   secretKey: ${PAYMOB_SECRET_KEY}
   # publicKey: ${PAYMOB_PUBLIC_KEY}
   # integrationId: ${PAYMOB_INTEGRATION_ID}
   # iFrameId: ${PAYMOB_IFRAME_ID}

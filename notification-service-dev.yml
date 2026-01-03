@@ -1,12 +1,14 @@
 spring:
   cassandra:
-    keyspace-name: ${CASSANDRA_KP}
-    contact-points: ${LHOST}
-    port: ${CASSANDRA_PORT}
+    keyspace-name: notification
+    username: aziz
+    password: aziz333
+    schema-action: CREATE_IF_NOT_EXISTS
+    contact-points: localhost
+    port: 9042
     local-datacenter: dc1
-    schema-action: create_if_not_exists
   kafka:
-    bootstrap-servers: ${LHOST}:${KAFKA_BROKER_PORT}
+    bootstrap-servers: localhost:9092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
@@ -26,4 +28,4 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     serviceUrl:
-      defaultZone: http://${LHOST}:${DISCOVERY_SERVER_PORT}/eureka/
+      defaultZone: http://localhost:8081/eureka/

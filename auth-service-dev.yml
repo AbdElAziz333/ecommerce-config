@@ -1,8 +1,8 @@
 spring:
   data:
     redis:
-      host: ${LHOST}
-      port: ${REDIS_PORT}
+      host: localhost
+      port: 6380
       timeout: 2000ms
 
 eureka:
@@ -10,4 +10,4 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     serviceUrl:
-      defaultZone: http://${LHOST}:${DISCOVERY_SERVER_PORT}/eureka/
+      defaultZone: http://localhost:8081/eureka/

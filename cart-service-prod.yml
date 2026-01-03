@@ -1,13 +1,13 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${POSTGRES_SVC}:${POSTGRES_PORT}/${POSTGRES_DB}
+    url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
   data:
     redis:
-      host: redis-19055.c135.eu-central-1-1.ec2.cloud.redislabs.com
-      port: 19055
-      username: default
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
+      username: ${REDIS_USERNAME}
       password: ${REDIS_PASSWORD}
       timeout: 2000ms
 

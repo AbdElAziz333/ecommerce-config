@@ -1,16 +1,27 @@
 spring:
   cassandra:
     keyspace-name: ${CASSANDRA_KEYSPACE}
-    username: token
-    password: ${ASTRA_TOKEN}
-    schema-action: create_if_not_exists
+    username: ${CASSANDRA_USERNAME}
+    password: ${CASSANDRA_PASSWORD}
+    schema-action: CREATE_IF_NOT_EXISTS
     request:
       timeout: 10s
     connection:
       connect-timeout: 10s
       init-query-timeout: 10s
   kafka:
-    bootstrap-servers: ${KAFKA_SVC}:${KAFKA_BROKER_PORT}
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    properties:
+      security.protocol: SSL
+      ssl:
+        truststore:
+          type: PEM
+          location: file:${KAFKA_CA_PEM}
+        keystore:
+          type: PEM
+          location: file:${KAFKA_SERVICE_CERT}
+        key:
+            location: file:${KAFKA_SERVICE_KEY}
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
@@ -25,12 +36,12 @@ spring:
         spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
         spring.json.type.mapping: "com.aziz.user_service.kafka.events.UserRegisteredEvent:com.aziz.notification_service.kafka.events.UserRegisteredEvent,com.aziz.user_service.kafka.events.OtpVerificationEvent:com.aziz.notification_service.kafka.events.OtpVerificationEvent,com.aziz.order_service.kafka.events.OrderCreationEvent:com.aziz.notification_service.kafka.events.OrderCreationEvent,com.aziz.payment_service.kafka.events.PaymentSuccessEvent:com.aziz.notification_service.kafka.events.PaymentSuccessEvent,com.aziz.payment_service.kafka.events.PaymentFailedEvent:com.aziz.notification_service.kafka.events.PaymentFailedEvent"
 
-datastax.astra:
-  secure-connect-bundle: classpath:secure-connect.zip
-
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
     serviceUrl:
       defaultZone: http://${DISCOVERY_SERVER_SVC}:${DISCOVERY_SERVER_PORT}/eureka/
+
+datastax.astra:
+  secure-connect-bundle: classpath:secure-connect.zip

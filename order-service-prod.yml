@@ -1,10 +1,21 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${POSTGRES_SVC}:${POSTGRES_PORT}/${POSTGRES_DB}
+    url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
   kafka:
-    bootstrap-servers: ${KAFKA_SVC}:${KAFKA_BROKER_PORT}
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    properties:
+      security.protocol: SSL
+      ssl:
+        truststore:
+          type: PEM
+          location: file:${KAFKA_CA_PEM}
+        keystore:
+          type: PEM
+          location: file:${KAFKA_SERVICE_CERT}
+        key:
+            location: file:${KAFKA_SERVICE_KEY}
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
