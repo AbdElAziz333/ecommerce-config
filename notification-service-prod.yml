@@ -11,17 +11,6 @@ spring:
       init-query-timeout: 10s
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
-    properties:
-      security.protocol: SSL
-      ssl:
-        truststore:
-          type: PEM
-          location: file:${KAFKA_CA_PEM}
-        keystore:
-          type: PEM
-          location: file:${KAFKA_SERVICE_CERT}
-        key:
-            location: file:${KAFKA_SERVICE_KEY}
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
@@ -41,7 +30,4 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     serviceUrl:
-      defaultZone: http://${DISCOVERY_SERVER_SVC}:${DISCOVERY_SERVER_PORT}/eureka/
-
-datastax.astra:
-  secure-connect-bundle: classpath:secure-connect.zip
+      defaultZone: http://${DISCOVERY_SERVER}:${DISCOVERY_SERVER_PORT}/eureka/
