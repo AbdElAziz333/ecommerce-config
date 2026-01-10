@@ -3,7 +3,7 @@ spring:
     mongodb:
       host: ${MONGO_HOST}
       database: ${MONGO_DATABASE}
-      user: ${MONGO_USER}
+      username: ${MONGO_USER}
       password: ${MONGO_PASSWORD}
       authentication-database: admin
 
