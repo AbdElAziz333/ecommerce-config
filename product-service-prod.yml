@@ -5,6 +5,7 @@ spring:
       database: ${MONGO_DATABASE}
       user: ${MONGO_USER}
       password: ${MONGO_PASSWORD}
+      authentication-database: admin
 
 eureka:
   client:
