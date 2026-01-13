@@ -1,17 +1,4 @@
 spring:
-  cassandra:
-    keyspace-name: ${CASSANDRA_KEYSPACE}
-    contact-points: ${CASSANDRA_HOST}
-    port: ${CASSANDRA_PORT}
-    local-datacenter: ${CASSANDRA_DATACENTER}
-    username: ${CASSANDRA_USER}
-    password: ${CASSANDRA_PASSWORD}
-    schema-action: CREATE_IF_NOT_EXISTS
-    request:
-      timeout: 10s
-    connection:
-      connect-timeout: 10s
-      init-query-timeout: 10s
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
     producer:
