@@ -21,11 +21,11 @@ spring:
               predicates:
                 - Path=/api/v1/user/current
             - id: user-service
-              uri: lb://user-service
+              uri: lb://auth-service
               predicates:
                 - Path=/api/v1/users/**
             - id: address-service
-              uri: lb://user-service
+              uri: lb://auth-service
               predicates:
                 - Path=/api/v1/addresses/**
             - id: product-service
@@ -69,7 +69,7 @@ logging:
     console: "%d{HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
 
 server:
-  port: 8089
+  port: 8088
 
 jwt:
   accessTokenSecret: katykatykatykatykatykatykatykaty
