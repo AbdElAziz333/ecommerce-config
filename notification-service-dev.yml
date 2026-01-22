@@ -1,4 +1,17 @@
 spring:
+  mail:
+    host: smtp.gmail.com
+    port: 1025
+    username: ""
+    password: ""
+    protocol: smtp
+    properties:
+      mail:
+        debug: false
+        smtp:
+          auth: false
+          starttls:
+            enable: false
   kafka:
     bootstrap-servers: localhost:9092
     producer:
