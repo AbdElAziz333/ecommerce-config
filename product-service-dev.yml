@@ -5,7 +5,7 @@ spring:
       port: 27017
       username: aziz
       password: aziz333
-      database: products
+      database: product
       authentication-database: admin
 
 eureka:
